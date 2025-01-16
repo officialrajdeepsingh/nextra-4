@@ -1,7 +1,28 @@
-import type { NextConfig } from "next";
+//import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+import nextra from 'nextra'
 
-export default nextConfig;
+const withNextra = nextra({
+  latex: true,
+  defaultShowCopyCode: true,
+  contentDirBasePath: '/docs',
+})
+
+const nextConfig = withNextra({
+  reactStrictMode: true,
+})
+/*
+ *   experimental: {
+    turbo: {
+      rules: {
+        './components/icons/*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js'
+        }
+      }
+    },
+    optimizePackageImports: ['@components/icons']
+  }
+
+ * */
+export default nextConfig
